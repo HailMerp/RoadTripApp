@@ -1,0 +1,19 @@
+agm-map {
+    height: 400px;
+  } 
+
+.container {
+  margin-top: 50px;
+  padding: 50px;
+  text-align: center;
+  background-color: rgba(206, 238, 247, 0.986);
+  border-radius: 25px;
+
+}
+.coordinates-list {
+  padding: 50px;
+  text-align: center;
+}
+.btn{
+  margin:10px;
+}

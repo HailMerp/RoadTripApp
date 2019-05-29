@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col">
+    <button class="btn btn-lg btn-info" [class.active]="filterBy==='all'" (click)="filterBy='all'">Wszystkie</button>
+    <button class="btn btn-lg btn-info" [class.active]="filterBy==='latest'" (click)="filterBy='latest'">Ostatnio dodane</button>
+    <button class="btn btn-lg btn-info" [class.active]="filterBy==='krajobraz'" (click)="filterBy='krajobraz'">Krajobrazy</button>
+    <button class="btn btn-lg btn-info" [class.active]="filterBy==='architektura'" (click)="filterBy='architektura'">Architektura</button>
+  </div>
+  <div>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Wyszukaj tag" aria-label="Search">
+        <button class="btn btn-outline"style="background-color: rgba(206, 238, 247, 0.986);" type="submit">Szukaj</button>
+      </form>
+      </div>
+
+</div>
+<div class="container">
+    <ul id="thumbnailsList">
+        <li *ngFor="let image of (visibleImages | imageFilter:filterBy)" >
+            <a [routerLink] ="['/image', image.id]">
+                <img src="{{image.url}}" class="tn" width="200" height="160">
+            </a>
+        </li>
+    </ul>
+</div>
+  
