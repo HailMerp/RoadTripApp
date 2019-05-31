@@ -7,6 +7,8 @@ import { FilmsComponent } from './Components/films/films.component';
 import { TripsComponent } from './Components/trips/trips.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
+import { LogPageComponent } from './Components/log-page/log-page.component';
+import { RegPanelComponent } from './Components/reg-panel/reg-panel.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
     { path: 'trips',component: TripsComponent },
     { path: 'home',component: MapComponent },
     { path: 'share',component: ShareComponent },
+    { path: 'log',component: LogPageComponent },
+    { path: 'reg',component: RegPanelComponent },
     { path: 'settings',component: SettingsComponent },
     { path: 'user-profile',component: UserProfileComponent },
     { path: '', redirectTo: '/', pathMatch: 'full' },

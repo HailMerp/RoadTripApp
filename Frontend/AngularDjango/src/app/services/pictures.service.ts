@@ -30,6 +30,8 @@ export class PicturesService {
   ]
   visibleImages = [];
 
+  visible:File;
+
   getImages(){
       return this.visibleImages = this.IMAGES.slice(0);
   }
@@ -37,4 +39,11 @@ export class PicturesService {
   getImage(id: number){
       return this.IMAGES.slice(0).find(image => image.id == id)
   }
+
+  uploadImage(image: File)
+  {
+    console.log("zadzialalo");
+    this.visibleImages.push(image);
+  }
+
 }

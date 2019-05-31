@@ -1,24 +1,52 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
-<div class="container">
-  <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="addMarker($event.coords.lat, $event.coords.lng)">
-    <agm-marker
-          *ngFor="let marker of markers"
-          [latitude]="marker.lat"
-          [longitude]="marker.lng"
+<div class="container" style="z-index: -1">
+  <agm-map [latitude]="lat" [longitude]="lng"  (mapClick)="addMarker($event.coords.lat, $event.coords.lng)">
+    <div *ngIf="task=='Modify'; else elseBlock"> 
+    <agm-marker 
+          *ngFor="let marker of markers" 
+          [latitude]="marker.latitude"
+          [longitude]="marker.longitude"
           [markerDraggable]="true"
+          dragging="true"
           (markerClick)="selectMarker($event)"
         >
+        <agm-info-window #window>
+          <h6> Opis tagu: </h6>
+            <button routerLink="/pictures" type="button"  class="btn btn-primary">Pokaż więcej</button> 
+          </agm-info-window>
         </agm-marker>
+      </div>
+
+      <ng-template #elseBlock>
+          <div>
+              <agm-marker 
+              *ngFor="let marker of markers" 
+              [latitude]="marker.latitude"
+              [longitude]="marker.longitude"
+              [markerDraggable]="false"
+              dragging="true"
+              (markerClick)="selectMarker($event)"
+            >
+
+            
+            </agm-marker>
+          </div> 
+        </ng-template>
   </agm-map>
-  
+
+  <button (click)="Modify()" type="button"  class="btn btn-primary">Modyfikuj</button>  
+  <button (click)="Add()" type="button" class="btn btn-success">Dodaj</button>
 <button (click)="Remove()" type="button" class="btn btn-danger">Usuń</button>  
-<button (click)="Add()" type="button" class="btn btn-success">Dodaj</button>
+
 </div>
+
+<button style="margin-left: 45%; margin-right: 45%" (click)="Remove()" type="button" class="btn btn-info">Zatwierdź</button>  
 <div class="coordinates-list">
+  
 Ostatnio dodane znaczniki:
   <li *ngFor="let marker of markers">
     {{ marker.lng }} |  {{ marker.lat }}
   </li>
 </div>
-  
+

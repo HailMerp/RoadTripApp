@@ -1,5 +1,58 @@
-<div style="padding: 20px">
-    <button class="btn">Stwórz wycieczkę</button>
-    <button class="btn">Edytuj wycieczkę</button>
-    <button class="btn">Usuń wycieczkę</button>
-  </div>
+<div style="margin-top: 5vh; margin-left: 5vw; margin-right: 5vw" class="list-group">
+
+  <div *ngIf="visible==true" [@slideInOut]>
+<ul  class="list-group">
+<li style="align-content: center" class="list-group-item active">
+  <h1 style="text-align: center"> Dostępne wycieczki</h1>
+ 
+  <button (click)="showPlan()" style="margin-right: 800px" style="border-radius: 20px" type="button" class="btn">Dodaj nową</button>
+
+</li>
+<a (click)="showPlan()" class="list-group-item list-group-item-action">Góry</a>
+<a  class="list-group-item list-group-item-action">Chmury</a>
+<a  class="list-group-item list-group-item-action">Rury</a>
+<a  class="list-group-item list-group-item-action ">Dziury</a>
+</ul>
+</div>
+
+<div *ngIf="visible==false" [@slideInOut]>
+
+
+  <ul  class="list-group">
+    <li style="align-content: center" class="list-group-item active">
+      <h1 style="text-align: center"> #Tag1</h1>
+    </li>
+  </ul>
+
+  <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+      <mdb-carousel-item>
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
+      </mdb-carousel-item>
+      <mdb-carousel-item>
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide">
+      </mdb-carousel-item>
+      <mdb-carousel-item>
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">
+      </mdb-carousel-item>
+    </mdb-carousel>
+
+
+    <ul  class="list-group">
+        <li style="align-content: center" class="list-group-item active">
+          <h1 style="text-align: center"> #Tag1</h1>
+        </li>
+      </ul>
+  
+      <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+          <mdb-carousel-item>
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
+          </mdb-carousel-item>
+          <mdb-carousel-item>
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide">
+          </mdb-carousel-item>
+          <mdb-carousel-item>
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">
+          </mdb-carousel-item>
+        </mdb-carousel>
+</div>
+</div>

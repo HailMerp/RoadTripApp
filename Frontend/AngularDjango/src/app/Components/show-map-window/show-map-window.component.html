@@ -1,0 +1,71 @@
+<div class="modal-header">
+  <h4 class="modal-title">Wybrano tag</h4>
+</div>
+<div class="modal-body">
+    
+  
+
+    <table cellspacing="50" style="width:100%">
+
+        
+        <tr height="100">
+            Dodaj tag: 
+            <th>
+              <input [(ngModel)]="tag"  type="text" placeholder="Dodaj tag" aria-label="Number" matInput >
+            </th>
+          </tr>
+      
+          <tr height="100">
+              Albo użyj poprzednio dodanego:
+              <th>
+                <select >
+          
+                  <option *ngFor="let option of options " size="10">{{option}}</option>
+             
+             </select>
+            </th>
+            </tr>
+      
+            <tr height="100">
+                Opis:
+                <th>
+                  <input [(ngModel)]="description" type="text" placeholder="Dodaj tag" aria-label="Number" matInput >
+                </th>
+              </tr>
+
+      
+            <tr height="100">
+                Wgraj zdjęcie:
+                <input 
+                style="display: none"
+                type="file" (change)="onFileChanged($event)"
+                #fileInput>
+                <th>
+                   
+                  <button class="btn btn-default" (click)="fileInput.click()">Wybierz</button>
+                </th>
+
+                <th>
+                   
+                    <button class="btn btn-default" (click)="onUpload()">Wgraj</button>
+                  </th>
+
+              </tr>
+      
+    
+
+
+
+</table>
+
+</div>
+<div class="modal-footer">
+
+    <button style="margin-right: 250px" class="btn btn-success" (click)="createtag()" (click)="activeModal.dismiss('Close Clicked')">
+        ok!
+      </button>
+
+    <button class="btn btn-danger" (click)="cancel()" (click)="activeModal.dismiss('Close Clicked')">
+      Anuluj
+    </button>
+</div>
