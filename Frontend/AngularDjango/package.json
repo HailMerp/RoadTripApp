@@ -34,6 +34,7 @@
     "igniteui-angular": "^7.3.0",
     "material-design-icons": "^3.0.1",
     "ngx-bootstrap": "^4.1.1",
+    "ngx-file-drop": "^6.0.1",
     "rxjs": "6.0.0",
     "screenfull": "^4.2.0",
     "zone.js": "~0.8.26"
