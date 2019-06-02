@@ -25,5 +25,37 @@
 }
 
 .btn{
+  background-color: #00b1b1;
     margin:10px;
+    color: white;
+  }
+  #form{
+    padding: 0px 100px;
+    width: 100%;
+  }
+  input:disabled{
+    border: none;
+    background-color: inherit;
+    font-weight: bold;
+  }
+  select:disabled{
+    background-color: inherit;
+    border: none;
+     /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+  font-weight: bold;
+  }
+  .form-group--test{
+    display: flex;
+    justify-content: center;
+  }
+  .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
   }
