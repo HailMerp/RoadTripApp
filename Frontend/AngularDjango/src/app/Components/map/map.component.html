@@ -12,8 +12,10 @@
           (markerClick)="selectMarker($event)"
         >
         <agm-info-window #window>
+          <h6>Nazwa tagu:</h6>
           <h6> Opis tagu: </h6>
-            <button routerLink="/pictures" type="button"  class="btn btn-primary">Pokaż więcej</button> 
+          <h6>Liczba zdjęć:</h6>
+          <h6>Należą do wycieczek:</h6>
           </agm-info-window>
         </agm-marker>
       </div>
@@ -41,12 +43,12 @@
 
 </div>
 
-<button style="margin-left: 45%; margin-right: 45%" (click)="Remove()" type="button" class="btn btn-info">Zatwierdź</button>  
+<!-- <button style="margin-left: 45%; margin-right: 45%" (click)="Remove()" type="button" class="btn btn-info">Zatwierdź</button>   -->
 <div class="coordinates-list">
   
-Ostatnio dodane znaczniki:
+<!-- Ostatnio dodane znaczniki:
   <li *ngFor="let marker of markers">
     {{ marker.lng }} |  {{ marker.lat }}
-  </li>
+  </li> -->
 </div>
 
