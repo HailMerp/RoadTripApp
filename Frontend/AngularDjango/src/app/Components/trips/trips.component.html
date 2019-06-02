@@ -1,11 +1,11 @@
 <div style="margin-top: 5vh; margin-left: 5vw; margin-right: 5vw" class="list-group">
 
-  <div *ngIf="visible==true" [@slideInOut]>
+  <div *ngIf="visible=='start'" [@slideInOut]>
 <ul  class="list-group">
 <li style="align-content: center" class="list-group-item active">
   <h1 style="text-align: center"> Dostępne wycieczki</h1>
  
-  <button (click)="showPlan()" style="margin-right: 800px" style="border-radius: 20px" type="button" class="btn">Dodaj nową</button>
+  <button (click)="addMap()" style="margin-right: 800px" style="border-radius: 20px" type="button" class="btn">Dodaj nową</button>
 
 </li>
 <a (click)="showPlan()" class="list-group-item list-group-item-action">Góry</a>
@@ -15,7 +15,7 @@
 </ul>
 </div>
 
-<div *ngIf="visible==false" [@slideInOut]>
+<div *ngIf="visible=='show'" [@slideInOut]>
 
 
     <ul  class="list-group">
@@ -68,4 +68,11 @@
           </mdb-carousel-item>
         </mdb-carousel>
 </div>
+
+<div *ngIf="visible=='map'" [@slideInOut]>
+
+<app-map></app-map>
+
+</div>
+
 </div>

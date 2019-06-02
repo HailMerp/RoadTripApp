@@ -37,10 +37,11 @@
         </ng-template>
   </agm-map>
 
-  <button (click)="Modify()" type="button"  class="btn btn-primary">Modyfikuj</button>  
-  <button (click)="Add()" type="button" class="btn btn-success">Dodaj</button>
-<button (click)="Remove()" type="button" class="btn btn-danger">Usuń</button>  
-
+  <div *ngIf="router.url !== '/home' ">
+    <button (click)="Modify()" type="button"  class="btn btn-primary">Modyfikuj</button>  
+    <button (click)="Add()" type="button" class="btn btn-success">Dodaj</button>
+    <button (click)="Remove()" type="button" class="btn btn-danger">Usuń</button>  
+</div>
 </div>
 
 <!-- <button style="margin-left: 45%; margin-right: 45%" (click)="Remove()" type="button" class="btn btn-info">Zatwierdź</button>   -->

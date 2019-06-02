@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, animate, style } from '@angular/animations'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trips',
@@ -20,19 +21,24 @@ import { trigger, transition, animate, style } from '@angular/animations'
 
 export class TripsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
-  visible:boolean;
+  visible:string;
 
   ngOnInit() {
-    this.visible=true;
+    this.visible="start";
   }
   
   showPlan()
   {
     
-    this.visible=false;
+    this.visible="show";
     console.log(this.visible);
+  }
+
+  addMap()
+  {
+    this.visible="map";
   }
 
 }
