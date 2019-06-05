@@ -52,6 +52,17 @@ export class UserProfileComponent implements OnInit {
   }
   onAvatarChange(event) {
     console.log(event.target.files[0] instanceof Blob)
+    event.target.result;
   }
+  url: string; 
+  onSelectFile(event) { 
+    // called each time file input changes 
+    if (event.target.files && event.target.files[0]) { var reader = new FileReader(); 
+      reader.readAsDataURL(event.target.files[0]); 
+      // read file as data url 
+      reader.onload = (event) => { // called once readAsDataURL is completed 
+        this.url = event.target.result;
+       
+      } } }
 
 }
