@@ -19,7 +19,7 @@ import { TripsComponent } from './Components/trips/trips.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { ShowMapWindowComponent } from './Components/show-map-window/show-map-window.component';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-
+import { HttpClientModule } from '@angular/common/http';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { ImageFilterPipe } from './pipes/filter.pipe';
 import { FilmComponent } from './Components/film/film.component';
@@ -56,7 +56,8 @@ import { RegPanelComponent } from './Components/reg-panel/reg-panel.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatRippleModule,
+    MatRippleModule,    
+    HttpClientModule,
     CommonModule,
     NgbModule,
     NgbModule.forRoot(),
