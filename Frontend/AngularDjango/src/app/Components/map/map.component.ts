@@ -2,11 +2,13 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 
 
+
 import { google, Marker } from '@agm/core/services/google-maps-types';
 import { ShowMapWindowComponent } from '../show-map-window/show-map-window.component';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { MarkerServiceService } from 'src/app/services/marker-service.service';
 import { MarkerTag } from 'src/Classes/marker';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-map',
@@ -30,7 +32,7 @@ export class MapComponent implements OnInit {
   markers:MarkerTag[]=[] ;
 
   constructor(
-    private modalService: NgbModal, private markerService:MarkerServiceService
+    private modalService: NgbModal, private markerService:MarkerServiceService, public router: Router
   ) { 
     
   }

@@ -1,0 +1,25 @@
+<div style="margin-top: 5vh; margin-left: 5vw; margin-right: 5vw" class="center">
+  <file-drop dropZoneLabel="" (onFileDrop)="dropped($event)" 
+  (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+      <span>Tutaj przeciągnij plik</span>
+  </file-drop>
+  <div class="upload-table">
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>Name</th>
+              </tr>
+          </thead>
+          <tbody class="upload-name-style">
+              <tr *ngFor="let item of files; let i=index">
+                 
+                      <th><strong>{{ item.relativePath }}</strong></th>
+                      <th><button type="button" style="margin-left: 70%" class="btn btn-secondary">Usuń</button></th> 
+                    
+                    
+                  
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
