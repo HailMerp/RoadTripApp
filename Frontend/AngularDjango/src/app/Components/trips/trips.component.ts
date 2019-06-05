@@ -25,6 +25,8 @@ export class TripsComponent implements OnInit {
 
   visible:string;
 
+  trips:string[]=["Góry","Śnieg"];
+
   ngOnInit() {
     this.visible="start";
   }

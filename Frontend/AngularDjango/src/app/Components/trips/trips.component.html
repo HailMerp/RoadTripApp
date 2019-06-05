@@ -11,10 +11,11 @@
  
 
 </li>
-<a (click)="showPlan()" class="list-group-item list-group-item-action">Góry</a>
+<a (click)="showPlan()" class="list-group-item list-group-item-action" *ngFor="let trip of trips">{{trip}}</a>
+<!-- <a (click)="showPlan()" class="list-group-item list-group-item-action">Góry</a>
 <a  class="list-group-item list-group-item-action">Chmury</a>
 <a  class="list-group-item list-group-item-action">Rury</a>
-<a  class="list-group-item list-group-item-action ">Dziury</a>
+<a  class="list-group-item list-group-item-action ">Dziury</a> -->
 </ul>
 </div>
 

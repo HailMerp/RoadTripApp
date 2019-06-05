@@ -29,6 +29,7 @@ import { RegPanelComponent } from './Components/reg-panel/reg-panel.component';
 import { UploadImageComponent } from './Components/upload-image/upload-image.component';
 import { HomeComponent } from './Components/home/home.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
