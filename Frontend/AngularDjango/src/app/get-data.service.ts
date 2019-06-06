@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -149,12 +149,12 @@ addMarkerTag(latitude:number,longitude:number,tag:string,description:string){
 
 
 
-get_user_details(firstName:string, lastName:string){
-  this.httpClient.get(this.baseUrl + 'users').subscribe((userDetail)=>{
-    return userDetail;
-});
+// get_user_details(firstName:string, lastName:string){
+//   this.httpClient.get(this.baseUrl + 'users').subscribe((userDetail)=>{
+//     return userDetail;
+// });
 
-}
+// }
 
 
 }
