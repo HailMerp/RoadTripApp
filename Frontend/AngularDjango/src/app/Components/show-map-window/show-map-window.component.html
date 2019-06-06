@@ -15,21 +15,21 @@
             </th>
           </tr>
       
-          <tr height="100">
+          <!-- <tr height="100">
               Albo użyj poprzednio dodanego:
               <th>
                 <select >
           
-                  <option *ngFor="let option of options " size="10">{{option}}</option>
+                  <option (Click)="changeNameOnInput()" *ngFor="let option of options " size="10">{{option}}</option>
              
              </select>
             </th>
-            </tr>
+            </tr> -->
       
             <tr height="100">
                 Opis:
                 <th>
-                  <input [(ngModel)]="description" type="text" placeholder="Dodaj tag" aria-label="Number" matInput >
+                  <input [(ngModel)]="description" type="text" placeholder="Dodaj opis" aria-label="Number" matInput >
                 </th>
               </tr>
 

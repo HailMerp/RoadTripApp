@@ -19,9 +19,9 @@ export class MapComponent implements OnInit {
 
   isDeletable:boolean=false;
   isAddOn=true;
-  
+  newTripName:string = ""
   task:string="Modify";
-  
+  invalidInput: boolean=false;
 
   title = 'ProjektChmura';
   lat: number = 51.678418;
@@ -59,7 +59,17 @@ export class MapComponent implements OnInit {
     this.isDeletable=false;
     this.isAddOn=true;
   }
+  Submit(){
+    if(this.newTripName){
+    this.markerService.addTrip(this.newTripName)
+    this.invalidInput=false;
+    this.router.navigate(['/home']);}
+    else
+    this.invalidInput=true;
 
+  
+    
+  }
   addMarker(lat: number, lng: number) {
     if(this.task=="Add") 
       {
@@ -86,6 +96,9 @@ export class MapComponent implements OnInit {
         return markers.latitude !== event.latitude && markers.longitude !== event.longitude;
       });
     }
+  }
+  onChangeTripName(event){
+    this.newTripName=event.target.value;
   }
   public openDialog(visible: boolean): ShowMapWindowComponent {
     let options: NgbModalOptions = {}

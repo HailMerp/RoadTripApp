@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
+<<<<<<< HEAD
 import { HttpClient, HttpParams } from '@angular/common/http';
+=======
+import { HttpClient } from '@angular/common/http';
+>>>>>>> 049a26e81b9f7d5b5b6dea145cd36b1ba84d5e31
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +11,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class GetDataService {
 
   baseUrl:string="http://127.0.0.1:5000/";
+<<<<<<< HEAD
 
+=======
+>>>>>>> 049a26e81b9f7d5b5b6dea145cd36b1ba84d5e31
   constructor(private httpClient: HttpClient) { }
 
 
@@ -17,6 +24,7 @@ export class GetDataService {
     });
 }
 
+<<<<<<< HEAD
   get_user_details(firstName:string, lastName:string){
   let params = new HttpParams().set("firstName",firstName).set("lastName", lastName); //Create new HttpParams
   this.httpClient.get(this.baseUrl + 'users',{ params: params }).subscribe((userDetail)=>{
@@ -148,5 +156,14 @@ addMarkerTag(latitude:number,longitude:number,tag:string,description:string){
 
 
 
+=======
+get_user_details(firstName:string, lastName:string){
+  this.httpClient.get(this.baseUrl + 'users').subscribe((userDetail)=>{
+    return userDetail;
+});
+
+}
+
+>>>>>>> 049a26e81b9f7d5b5b6dea145cd36b1ba84d5e31
 
 }

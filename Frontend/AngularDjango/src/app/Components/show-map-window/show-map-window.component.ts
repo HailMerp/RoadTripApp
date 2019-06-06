@@ -47,6 +47,12 @@ export class ShowMapWindowComponent implements OnInit {
     this.pictureService.uploadImage(this.selectedFile);
   }
 
+
+  changeNameOnInput()
+  {
+    this.tag="";
+  }
+
   createtag()
   { this.marker.latitude = this.RootComponent.lat;
     this.marker.longitude = this.RootComponent.lng;

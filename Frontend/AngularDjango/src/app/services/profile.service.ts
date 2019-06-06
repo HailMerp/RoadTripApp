@@ -27,8 +27,10 @@ export class ProfileService {
       catchError(this.handleError<any>('getAvatar'))
     );
   }
-  updateAvatar(file: Blob): void {
-   console.log(file)
+  updateAvatar(url: String) {
+   return this.http.post(this.profileUrl,url).pipe(
+    catchError(this.handleError<any>('updateProfile'))
+  );
   }
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
