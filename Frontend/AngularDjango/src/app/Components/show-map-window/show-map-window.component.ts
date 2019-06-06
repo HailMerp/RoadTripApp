@@ -43,6 +43,7 @@ export class ShowMapWindowComponent implements OnInit {
   }
 
   onUpload() {
+    
     this.pictureService.uploadImage(this.selectedFile);
   }
 

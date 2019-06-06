@@ -1,28 +1,40 @@
 <div style="margin-top: 5vh; margin-left: 5vw; margin-right: 5vw" class="list-group">
 
-  <div *ngIf="visible==true" [@slideInOut]>
+  <div *ngIf="visible=='start'" [@slideInOut]>
 <ul  class="list-group">
 <li style="align-content: center" class="list-group-item active">
-  <h1 style="text-align: center"> Dostępne wycieczki</h1>
+  
+  <th style="float: left;">  <h1 style="text-align: center"> Dostępne wycieczki</h1>
+  </th>
+  <th style="float: right;">  <button (click)="addMap()" style="border-radius: 20px" type="button" class="btn btn-success">Dodaj nową</button>
+  </th>
  
-  <button (click)="showPlan()" style="margin-right: 800px" style="border-radius: 20px" type="button" class="btn">Dodaj nową</button>
 
 </li>
-<a (click)="showPlan()" class="list-group-item list-group-item-action">Góry</a>
+<a (click)="showPlan()" class="list-group-item list-group-item-action" *ngFor="let trip of trips">{{trip}}</a>
+<!-- <a (click)="showPlan()" class="list-group-item list-group-item-action">Góry</a>
 <a  class="list-group-item list-group-item-action">Chmury</a>
 <a  class="list-group-item list-group-item-action">Rury</a>
-<a  class="list-group-item list-group-item-action ">Dziury</a>
+<a  class="list-group-item list-group-item-action ">Dziury</a> -->
 </ul>
 </div>
 
-<div *ngIf="visible==false" [@slideInOut]>
+<div *ngIf="visible=='show'" [@slideInOut]>
 
 
-  <ul  class="list-group">
-    <li style="align-content: center" class="list-group-item active">
-      <h1 style="text-align: center"> #Tag1</h1>
-    </li>
-  </ul>
+    <ul  class="list-group">
+        <li style="align-content: center" class="list-group-item active">
+
+          <th> <h1 style="text-align: center"> #Tag1</h1> </th>
+          <th style="margin-left: 60vw" >
+            <button routerLink="/upload-image" type="button" style="margin-left: 70%" class="btn btn-secondary">Modyfikuj 
+            </button>
+          </th>
+          
+          
+        </li>
+        
+      </ul>
 
   <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
       <mdb-carousel-item>
@@ -39,8 +51,13 @@
 
     <ul  class="list-group">
         <li style="align-content: center" class="list-group-item active">
-          <h1 style="text-align: center"> #Tag1</h1>
+
+          <th> <h1 style="text-align: center"> #Tag1</h1> </th>
+          <th style="margin-left: 60vw" ><button type="button" style="margin-left: 70%" class="btn btn-secondary">Modyfikuj</button></th>
+          
+          
         </li>
+        
       </ul>
   
       <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
@@ -55,4 +72,11 @@
           </mdb-carousel-item>
         </mdb-carousel>
 </div>
+
+<div *ngIf="visible=='map'" [@slideInOut]>
+
+<app-map></app-map>
+
+</div>
+
 </div>
