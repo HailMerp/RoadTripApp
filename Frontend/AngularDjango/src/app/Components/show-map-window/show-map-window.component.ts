@@ -36,8 +36,9 @@ export class ShowMapWindowComponent implements OnInit {
   closeModal() {
     this.activeModal.close('Modal Closed');
   }
-  
+
   onFileChanged(event) {
+    console.log(event.target.files[0] instanceof Blob)
     this.selectedFile = event.target.files[0]
   }
 

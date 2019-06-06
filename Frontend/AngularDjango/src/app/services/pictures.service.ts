@@ -28,8 +28,8 @@ export class PicturesService {
     {"id":20, "category": "krajobraz", "caption": "Hiking trip 2017", "url":"assets/img/19.jpg"},
 
   ]
-  visibleImages = [];
-
+  visibleImages = []
+  avatarImage:File;
   visible:File;
 
   getImages(){
@@ -44,6 +44,10 @@ export class PicturesService {
   {
     console.log("zadzialalo");
     this.visibleImages.push(image);
+  }
+  uploadAvatar(image :File){
+    console.log(image)
+    this.avatarImage= image;
   }
 
 }
