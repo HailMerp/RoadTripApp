@@ -1,19 +1,28 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
+
+
 <div class="container" style="z-index: -1">
-  <agm-map [latitude]="lat" [longitude]="lng"  (mapClick)="addMarker($event.coords.lat, $event.coords.lng)">
+  <div *ngIf="router.url !== '/home' " class="trip-name">
+    <label for="trip-name__input" id="trip-name__label">Podaj nazwe wycieczki:</label>
+    <input type="text" id="trip-name__input" [ngClass]="{'error': invalidInput}" (change)="onChangeTripName($event)">
+  </div>
+  <div [class]="task">
+  <agm-map [latitude]="lat" [longitude]="lng"  (mapClick)="addMarker($event.coords.lat, $event.coords.lng)" >
     <div *ngIf="task=='Modify'; else elseBlock"> 
     <agm-marker 
           *ngFor="let marker of markers" 
           [latitude]="marker.latitude"
           [longitude]="marker.longitude"
-          [markerDraggable]="true"
-          dragging="true"
+          [markerDraggable]="false"
+          dragging="false"
           (markerClick)="selectMarker($event)"
         >
         <agm-info-window #window>
+          <h6>Nazwa tagu:</h6>
           <h6> Opis tagu: </h6>
-            <button routerLink="/pictures" type="button"  class="btn btn-primary">Pokaż więcej</button> 
+          <h6>Liczba zdjęć:</h6>
+          <h6>Należą do wycieczek:</h6>
           </agm-info-window>
         </agm-marker>
       </div>
@@ -25,7 +34,7 @@
               [latitude]="marker.latitude"
               [longitude]="marker.longitude"
               [markerDraggable]="false"
-              dragging="true"
+              dragging="false"
               (markerClick)="selectMarker($event)"
             >
 
@@ -34,19 +43,23 @@
           </div> 
         </ng-template>
   </agm-map>
-
-  <button (click)="Modify()" type="button"  class="btn btn-primary">Modyfikuj</button>  
-  <button (click)="Add()" type="button" class="btn btn-success">Dodaj</button>
-<button (click)="Remove()" type="button" class="btn btn-danger">Usuń</button>  
-
+</div>
+  <div *ngIf="router.url !== '/home' ">
+    <button (click)="Modify()" type="button"  class="btn btn-primary">Zobacz tag</button>  
+    <button (click)="Add()" type="button" class="btn btn-success">Dodaj</button>
+    <button (click)="Remove()" type="button" class="btn btn-danger">Usuń</button>  
+    <div>
+      <button class="btn btn-info btn-dark btn-accept btn-lg" (click)="Submit()">Zatwierdz plan wycieczki</button>
+    </div>
+</div>
 </div>
 
-<button style="margin-left: 45%; margin-right: 45%" (click)="Remove()" type="button" class="btn btn-info">Zatwierdź</button>  
+<!-- <button style="margin-left: 45%; margin-right: 45%" (click)="Remove()" type="button" class="btn btn-info">Zatwierdź</button>   -->
 <div class="coordinates-list">
   
-Ostatnio dodane znaczniki:
+<!-- Ostatnio dodane znaczniki:
   <li *ngFor="let marker of markers">
     {{ marker.lng }} |  {{ marker.lat }}
-  </li>
+  </li> -->
 </div>
 

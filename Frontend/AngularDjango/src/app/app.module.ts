@@ -20,11 +20,15 @@ import { SettingsComponent } from './Components/settings/settings.component';
 import { ShowMapWindowComponent } from './Components/show-map-window/show-map-window.component';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { FileDropModule } from 'ngx-file-drop';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { ImageFilterPipe } from './pipes/filter.pipe';
 import { FilmComponent } from './Components/film/film.component';
 import { LogPageComponent } from './Components/log-page/log-page.component';
 import { RegPanelComponent } from './Components/reg-panel/reg-panel.component';
+import { UploadImageComponent } from './Components/upload-image/upload-image.component';
+import { HomeComponent } from './Components/home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +46,8 @@ import { RegPanelComponent } from './Components/reg-panel/reg-panel.component';
     FilmComponent,
     LogPageComponent,
     RegPanelComponent,
+    UploadImageComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -65,7 +71,11 @@ import { RegPanelComponent } from './Components/reg-panel/reg-panel.component';
     AgmCoreModule.forRoot({
       apiKey: ''
     }),
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    FileDropModule
   ],
   providers: [],
   entryComponents: [

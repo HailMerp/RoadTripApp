@@ -17,3 +17,28 @@ agm-map {
 .btn{
   margin:10px;
 }
+.trip-name{
+  margin: 20px;
+  margin-top: 0px;
+}
+#trip-name__label{
+  font-size: 1.1em;
+  margin-right: 20px;
+  font-weight: bold;
+}
+.Modify{
+  border: solid 8px #428bca;
+  border-radius: 15px;
+}
+.Add{
+  border: solid 8px #5cb85c;
+  border-radius: 15px;
+}
+.Remove{
+
+  border: solid 8px #d9534f;
+  border-radius: 15px;
+}
+.error{
+  border: solid 2px #d9534f;
+}

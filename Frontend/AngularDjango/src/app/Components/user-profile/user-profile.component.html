@@ -9,7 +9,7 @@
         <h4 style="color:#00b1b1; text-align: left">{{userProfile.firstName}} {{userProfile.lastName}} </h4>
         <h5 style=" text-align: left">{{userProfile.country}}</h5>
         <label for="file" class="btn">Choose a file</label>
-        <input type="file" id="file" (change)="onAvatarChange($event)" class="inputfile">
+        <input type="file" id="file" (change)="onSelectFile($event)" class="inputfile">
         <button class="btn" routerLink="/pictures">Zdjęcia</button>
         <button class="btn" routerLink="/films">Filmy</button>
         <button class="btn" routerLink="/trips">Wycieczki</button>

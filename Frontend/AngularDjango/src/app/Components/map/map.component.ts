@@ -2,11 +2,13 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 
 
+
 import { google, Marker } from '@agm/core/services/google-maps-types';
 import { ShowMapWindowComponent } from '../show-map-window/show-map-window.component';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { MarkerServiceService } from 'src/app/services/marker-service.service';
 import { MarkerTag } from 'src/Classes/marker';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-map',
@@ -17,9 +19,9 @@ export class MapComponent implements OnInit {
 
   isDeletable:boolean=false;
   isAddOn=true;
-  
+  newTripName:string = ""
   task:string="Modify";
-  
+  invalidInput: boolean=false;
 
   title = 'ProjektChmura';
   lat: number = 51.678418;
@@ -30,7 +32,7 @@ export class MapComponent implements OnInit {
   markers:MarkerTag[]=[] ;
 
   constructor(
-    private modalService: NgbModal, private markerService:MarkerServiceService
+    private modalService: NgbModal, private markerService:MarkerServiceService, public router: Router
   ) { 
     
   }
@@ -57,7 +59,17 @@ export class MapComponent implements OnInit {
     this.isDeletable=false;
     this.isAddOn=true;
   }
+  Submit(){
+    if(this.newTripName){
+    this.markerService.addTrip(this.newTripName)
+    this.invalidInput=false;
+    this.router.navigate(['/home']);}
+    else
+    this.invalidInput=true;
 
+  
+    
+  }
   addMarker(lat: number, lng: number) {
     if(this.task=="Add") 
       {
@@ -80,10 +92,14 @@ export class MapComponent implements OnInit {
   selectMarker(event) {
   
     if(this.task=="Remove"){
-      this.markers = this.markers.filter(function( markers ) {
-        return markers.latitude !== event.latitude && markers.longitude !== event.longitude;
-      });
+      // this.markers = this.markers.filter(function( markers ) {
+      //   return markers.latitude !== event.latitude && markers.longitude !== event.longitude;
+      // });
+      this.markerService.deleteMarker(this.lat,this.lng);
     }
+  }
+  onChangeTripName(event){
+    this.newTripName=event.target.value;
   }
   public openDialog(visible: boolean): ShowMapWindowComponent {
     let options: NgbModalOptions = {}
