@@ -1,7 +1,14 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
+
+
 <div class="container" style="z-index: -1">
-  <agm-map [latitude]="lat" [longitude]="lng"  (mapClick)="addMarker($event.coords.lat, $event.coords.lng)">
+  <div *ngIf="router.url !== '/home' " class="trip-name">
+    <label for="trip-name__input" id="trip-name__label">Podaj nazwe wycieczki:</label>
+    <input type="text" id="trip-name__input" [ngClass]="{'error': invalidInput}" (change)="onChangeTripName($event)">
+  </div>
+  <div [class]="task">
+  <agm-map [latitude]="lat" [longitude]="lng"  (mapClick)="addMarker($event.coords.lat, $event.coords.lng)" >
     <div *ngIf="task=='Modify'; else elseBlock"> 
     <agm-marker 
           *ngFor="let marker of markers" 
@@ -36,11 +43,14 @@
           </div> 
         </ng-template>
   </agm-map>
-
+</div>
   <div *ngIf="router.url !== '/home' ">
     <button (click)="Modify()" type="button"  class="btn btn-primary">Modyfikuj</button>  
     <button (click)="Add()" type="button" class="btn btn-success">Dodaj</button>
     <button (click)="Remove()" type="button" class="btn btn-danger">Usuń</button>  
+    <div>
+      <button class="btn btn-info btn-dark btn-accept btn-lg" (click)="Submit()">Zatwierdz plan wycieczki</button>
+    </div>
 </div>
 </div>
 

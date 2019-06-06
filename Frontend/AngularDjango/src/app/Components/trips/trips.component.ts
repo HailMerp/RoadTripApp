@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, animate, style } from '@angular/animations'
 import { Router } from '@angular/router';
-
+import { MarkerServiceService } from 'src/app/services/marker-service.service';
 @Component({
   selector: 'app-trips',
   templateUrl: './trips.component.html',
@@ -21,14 +21,17 @@ import { Router } from '@angular/router';
 
 export class TripsComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,
+      private makerService: MarkerServiceService) { }
 
   visible:string;
 
-  trips:string[]=["Góry","Śnieg"];
+  trips:string[];
 
   ngOnInit() {
     this.visible="start";
+    this.trips=this.makerService.getTrips();
+    
   }
   
   showPlan()

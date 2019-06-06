@@ -12,7 +12,7 @@ export class MarkerServiceService {
   }
 
   markers:MarkerTag[]=[];
-
+  trips:string[]=["Góry","Śnieg"];
   marker:MarkerTag= new MarkerTag();
 
 
@@ -36,5 +36,11 @@ export class MarkerServiceService {
   {
     return this.marker;
   }
-
+  public getTrips(){
+    return this.trips;
+  }
+  public addTrip(trip:string){
+    this.trips.push(trip);
+    console.log(this.trips)
+  }
 }
