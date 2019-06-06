@@ -92,9 +92,10 @@ export class MapComponent implements OnInit {
   selectMarker(event) {
   
     if(this.task=="Remove"){
-      this.markers = this.markers.filter(function( markers ) {
-        return markers.latitude !== event.latitude && markers.longitude !== event.longitude;
-      });
+      // this.markers = this.markers.filter(function( markers ) {
+      //   return markers.latitude !== event.latitude && markers.longitude !== event.longitude;
+      // });
+      this.markerService.deleteMarker(this.lat,this.lng);
     }
   }
   onChangeTripName(event){

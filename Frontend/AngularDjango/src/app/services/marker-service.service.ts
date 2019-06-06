@@ -22,6 +22,19 @@ export class MarkerServiceService {
 
   }
 
+  public deleteMarker(lat:number,lng:number)
+  {
+
+    let marker = this.markers.find(i => i.latitude==lat);
+
+    const index: number = this.markers.indexOf(marker);
+    if (index !== -1) {
+        this.markers.splice(index, 1);
+    } 
+    
+
+  }
+
   public getMarkers()
   {
     return this.markers;

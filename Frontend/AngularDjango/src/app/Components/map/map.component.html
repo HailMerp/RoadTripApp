@@ -14,8 +14,8 @@
           *ngFor="let marker of markers" 
           [latitude]="marker.latitude"
           [longitude]="marker.longitude"
-          [markerDraggable]="true"
-          dragging="true"
+          [markerDraggable]="false"
+          dragging="false"
           (markerClick)="selectMarker($event)"
         >
         <agm-info-window #window>
@@ -34,7 +34,7 @@
               [latitude]="marker.latitude"
               [longitude]="marker.longitude"
               [markerDraggable]="false"
-              dragging="true"
+              dragging="false"
               (markerClick)="selectMarker($event)"
             >
 
@@ -45,7 +45,7 @@
   </agm-map>
 </div>
   <div *ngIf="router.url !== '/home' ">
-    <button (click)="Modify()" type="button"  class="btn btn-primary">Modyfikuj</button>  
+    <button (click)="Modify()" type="button"  class="btn btn-primary">Zobacz tag</button>  
     <button (click)="Add()" type="button" class="btn btn-success">Dodaj</button>
     <button (click)="Remove()" type="button" class="btn btn-danger">Usuń</button>  
     <div>
